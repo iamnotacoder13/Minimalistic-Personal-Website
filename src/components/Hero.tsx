@@ -1,9 +1,25 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { motion } from 'framer-motion';
 export const Hero = () => {
   return <section className="min-h-screen flex items-center justify-center px-6 bg-white">
       <div className="max-w-3xl text-center">
+        {/* Circular Photo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8, y: -30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-12 flex justify-center"
+        >
+          <div className="w-52 h-52 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg">
+            {/* Replace the src with your actual photo path */}
+            <img
+              src="/mason-photo.jpg" // Update this path to your actual photo
+              alt="Mason Ferré"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+
         <div className="relative inline-block mb-6">
           {/* The animated circle */}
           <motion.svg
