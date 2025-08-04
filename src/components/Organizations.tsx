@@ -6,7 +6,7 @@ export const Organizations = () => {
     name: 'Arch',
     period: '2025 - Present',
     description: 'Arch is a Series A fintech startup that is working to automate the post-investment process for alts investors. I am apart of the Operations team, where I work to onboard our clients and ensure our business is ticking.',
-    logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/refs/heads/main/download.jpeg',
+    logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/download.jpeg',
     website: 'https://arch.co/'
   },{
     name: 'Taob Holdings',
