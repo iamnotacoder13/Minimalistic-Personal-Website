@@ -8,14 +8,13 @@ export const About = () => {
         </AnimateOnScroll>
         <AnimateOnScroll>
           <p className="text-gray-600 mb-6">
-            Hi, my name is Mason Ferré. I am a senior at the University of
-            Oregon who is passionate about creating meaningful change in
+            Hi, my name is Mason Ferré. I am a recent graduate working in NYC at a series A startup who is passionate about creating meaningful change in
             businesses and our environment.
           </p>
         </AnimateOnScroll>
         <AnimateOnScroll>
           <p className="text-gray-600">
-            My blend of experience as a strategy consultant and entrepreneur
+            My blend of experience as a strategy consultant, entrepreneur, and first biz hire
             allows me to look at problems from a unique point of view and
             develop innovative insights.
           </p>
