@@ -3,9 +3,15 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 import { motion } from 'framer-motion';
 export const Organizations = () => {
   const organizations = [{
+    name: 'Arch',
+    period: '2025 - Present',
+    description: 'Arch is a Series A fintech startup that is working to automate the post-investment process for alts investors. I am apart of the Operations team, where I work to onboard our clients and ensure our business is ticking.',
+    logo: 'https://github.com/iamnotacoder13/images/blob/main/download.jpeg',
+    website: 'https://arch.co/'
+  },{
     name: 'Taob Holdings',
     period: '2022 - Present',
-    description: 'I am on the board of directors of Taob Holdings, LLC, a family-owned asset management company. My roles comprise identifying investment property leads, underwriting deals, and networking with other professionals. In our first year, I led a portfolio growth of 20%. We have investments across the PNW and Nashville, Tennessee. I look at real estate as a puzzle waiting to be pieced together, as each property of a portfolio needs to fit together to create a beautiful picture/successful portfolio.',
+    description: 'I am on the Board of Directors of Taob Holdings, LLC, a family-owned asset management company. My roles comprise identifying investment property leads, underwriting deals, and networking with other professionals. In our first year, I led a portfolio growth of 20%. We have investments across the PNW and Nashville, Tennessee. I look at real estate as a puzzle waiting to be pieced together, as each property of a portfolio needs to fit together to create a beautiful picture/successful portfolio.',
     logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/refs/heads/main/Screenshot%202023-11-05%20at%2012_15_38%20PM.avif'
   }, {
     name: 'Oregon Consulting Group',
