@@ -169,7 +169,7 @@ export const WhoIAm = () => {
                 <img
                   src={photos[currentIndex].src}
                   alt={photos[currentIndex].alt}
-                  className="w-full h-96 object-cover"
+                  className="w-full h-96 object-cover object-center"
                 />
                 {photos[currentIndex].caption && (
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
