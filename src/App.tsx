@@ -23,8 +23,8 @@ export function App() {
             <Values />
           </div>
         </section>
-        <WhoIAm />
         <Organizations />
+        <WhoIAm />
         <Contact />
       </main>
       <Footer />

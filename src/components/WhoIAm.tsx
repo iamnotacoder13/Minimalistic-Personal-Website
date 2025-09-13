@@ -154,31 +154,8 @@ export const WhoIAm = () => {
             ))}
           </div>
 
-          {/* Auto-play toggle */}
-          <div className="flex justify-center mt-4">
-            <button
-              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                isAutoPlaying
-                  ? 'bg-blue-600 text-white hover:bg-blue-700'
-                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-              }`}
-            >
-              {isAutoPlaying ? 'Pause' : 'Play'} Auto-Play
-            </button>
-          </div>
         </div>
 
-        {/* Description text */}
-        <AnimateOnScroll>
-          <div className="mt-12 text-center max-w-3xl mx-auto">
-            <p className="text-lg text-gray-600 leading-relaxed">
-              These photos capture different moments and aspects of who I am - from professional 
-              settings to personal adventures. Each image tells a story about my journey, interests, 
-              and the experiences that have shaped me.
-            </p>
-          </div>
-        </AnimateOnScroll>
       </div>
     </section>
   );
