@@ -7,31 +7,115 @@ export const WhoIAm = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  // Photo data - you can add more photos here
+  // Photo data - your uploaded photos
   const photos = [
     {
       id: 1,
-      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/mason-photo.jpg',
-      alt: 'Mason - Professional headshot',
-      caption: 'Professional headshot'
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/2025.05.17.MCU.Banquet-45.JPEG',
+      alt: 'Mason - MCU Banquet',
+      caption: ''
     },
     {
       id: 2,
-      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/mason-photo.jpg',
-      alt: 'Mason - Casual photo',
-      caption: 'Casual moment'
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/7e12f827-8100-4baf-adf3-7ed4c54a4b8a.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
     },
     {
       id: 3,
-      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/mason-photo.jpg',
-      alt: 'Mason - Working',
-      caption: 'At work'
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_0004.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
     },
     {
       id: 4,
-      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/mason-photo.jpg',
-      alt: 'Mason - Travel',
-      caption: 'Traveling'
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_0092.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 5,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_0156.jpg',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 6,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_0652.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 7,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_0799.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 8,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_1183.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 9,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_1274.jpg',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 10,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_2246.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 11,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_3371.jpg',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 12,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_3925.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 13,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_3945.jpg',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 14,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_5090.jpg',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 15,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_5162.jpg',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 16,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_7005.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 17,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_8575.JPG',
+      alt: 'Mason - Photo',
+      caption: ''
+    },
+    {
+      id: 18,
+      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/OCG10th_481_5_18_24_Original.jpg',
+      alt: 'Mason - OCG Event',
+      caption: ''
     }
   ];
 
@@ -87,11 +171,13 @@ export const WhoIAm = () => {
                   alt={photos[currentIndex].alt}
                   className="w-full h-96 object-cover"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
-                  <p className="text-white text-lg font-medium">
-                    {photos[currentIndex].caption}
-                  </p>
-                </div>
+                {photos[currentIndex].caption && (
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-6">
+                    <p className="text-white text-lg font-medium">
+                      {photos[currentIndex].caption}
+                    </p>
+                  </div>
+                )}
               </motion.div>
             </AnimatePresence>
 
