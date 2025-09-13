@@ -1,4 +1,3 @@
-import React from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
@@ -7,6 +6,7 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { OddJobs } from './components/OddJobs';
 import { Values } from './components/Values';
+import { WhoIAm } from './components/WhoIAm';
 export function App() {
   return <div className="w-full min-h-screen bg-white">
       <Header />
@@ -23,6 +23,7 @@ export function App() {
             <Values />
           </div>
         </section>
+        <WhoIAm />
         <Organizations />
         <Contact />
       </main>
