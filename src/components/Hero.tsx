@@ -73,7 +73,7 @@ export const Hero = () => {
         }} transition={{
           duration: 0.4,
           delay: 0.4
-        }} href="#contact" className="inline-block px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
+        }} href="mailto:masondferre@gmail.com?subject=Hello%20Mason" className="inline-block px-8 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors">
           Get in touch
         </motion.a>
       </div>
