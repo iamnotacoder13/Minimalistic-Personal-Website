@@ -28,12 +28,6 @@ export const WhoIAm = () => {
       caption: ''
     },
     {
-      id: 7,
-      src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_0799.JPG',
-      alt: 'Mason - Photo',
-      caption: ''
-    },
-    {
       id: 12,
       src: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/IMG_3925.JPG',
       alt: 'Mason - Photo',
