@@ -1,7 +1,7 @@
 import React from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 export const Contact = () => {
-  return <section id="contact" className="py-20 px-6 bg-gray-50">
+  return <section id="contact" className="py-20 px-6 bg-white">
       <div className="max-w-3xl mx-auto text-center">
         <AnimateOnScroll>
           <h2 className="text-3xl font-bold mb-8">Get in Touch</h2>
