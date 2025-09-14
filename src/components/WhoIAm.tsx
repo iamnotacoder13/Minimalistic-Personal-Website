@@ -150,6 +150,15 @@ export const WhoIAm = () => {
 
         </div>
 
+        {/* Description text */}
+        <AnimateOnScroll>
+          <div className="mt-12 text-center max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 leading-relaxed">
+              I am a passionate individual who is pursuing a life of fulfillment, adventure, meaningful work, and a lot of laughter. My mind shuts off, and I enter flow when I am exploring outside, learning new concepts, and working in teams. Here are some photos of my journey so far!
+            </p>
+          </div>
+        </AnimateOnScroll>
+
       </div>
     </section>
   );
