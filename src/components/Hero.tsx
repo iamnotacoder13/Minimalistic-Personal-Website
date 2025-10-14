@@ -32,7 +32,7 @@ export const Hero = () => {
             <motion.path
               d="M 2000,250 m -1500,0 a 1500,225 0 1,0 3000,0 a 1500,225 0 1,0 -3000,0"
               fill="none"
-              stroke="#154733"
+              stroke="#ff6b35"
               strokeWidth="8"
               initial={{ pathLength: 0 }}
               animate={{ pathLength: 1 }}
