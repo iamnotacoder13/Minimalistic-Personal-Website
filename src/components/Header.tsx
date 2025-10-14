@@ -13,24 +13,24 @@ export const Header: React.FC = () => {
   };
 
   return (
-    <header className="fixed top-0 w-full bg-white/80 backdrop-blur-sm z-50">
+    <header className="fixed top-0 w-full bg-[#124734]/80 backdrop-blur-sm z-50">
       <div className="max-w-screen-xl mx-auto px-8 py-4 flex justify-between items-center">
-        <a href="#" className="text-xl font-medium">
+        <a href="#" className="text-xl font-medium text-white">
           Mason Ferré
         </a>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
-          <a href="#about" className="hover:text-green-600 transition-colors">
+          <a href="#about" className="text-white hover:text-green-300 transition-colors">
             About
           </a>
-          <a href="#projects" className="hover:text-blue-600 transition-colors">
+          <a href="#projects" className="text-white hover:text-green-300 transition-colors">
             Work
           </a>
-          <a href="#contact" className="hover:text-red-600 transition-colors">
+          <a href="#contact" className="text-white hover:text-green-300 transition-colors">
             Contact
           </a>
-          <a href="https://substack.com/@masonferre" target="_blank" rel="noopener noreferrer" className="hover:text-purple-600 transition-colors">
+          <a href="https://substack.com/@masonferre" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-300 transition-colors">
             Blog
           </a>
         </nav>

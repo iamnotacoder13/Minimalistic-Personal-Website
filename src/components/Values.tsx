@@ -31,7 +31,7 @@ export const Values = () => {
   }];
   return <AnimateOnScroll>
       <div className="mt-2">
-        <h3 className="text-3xl font-bold mb-8">
+        <h3 className="text-3xl font-bold mb-8 text-white">
           My Values
         </h3>
         <div className="flex flex-wrap justify-center gap-5">

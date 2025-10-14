@@ -31,10 +31,10 @@ export const Organizations = () => {
     description: 'My roommate and I co-founded Beer Me., a hoodie that holds your beer. We received $5K in funding from the Oregon Innovation Challenge to launch our first collection of hoodies. I helped lead operations, sales, and marketing, leading to 200+ sold hoodies. In May 2025 we sold the company.',
     logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/refs/heads/main/Black%20Logo.avif'
   }];
-  return <section id="projects" className="py-20 px-6 bg-white">
+  return <section id="projects" className="py-20 px-6 bg-[#124734]">
       <div className="max-w-5xl mx-auto">
         <AnimateOnScroll>
-          <h2 className="text-3xl font-bold mb-12">Amazing Organizations I Have Worked With</h2>
+          <h2 className="text-3xl font-bold mb-12 text-white">Amazing Organizations I Have Worked With</h2>
         </AnimateOnScroll>
         <div className="space-y-8">
           {organizations.map((org, index) => <AnimateOnScroll key={index}>
@@ -43,7 +43,7 @@ export const Organizations = () => {
             y: -5
           }} transition={{
             duration: 0.3
-          }} className="p-6 border border-gray-100 rounded-lg hover:border-gray-200 hover:shadow-lg transition-all">
+          }} className="p-6 border border-gray-300 rounded-lg hover:border-gray-200 hover:shadow-lg transition-all bg-white/10">
                 <div className="flex flex-col md:flex-row md:items-center gap-6">
                   {org.website ? <a href={org.website} target="_blank" rel="noopener noreferrer" className="block group relative">
                       <motion.img whileHover={{
@@ -60,12 +60,12 @@ export const Organizations = () => {
               }} src={org.logo} alt={`${org.name} logo`} className="w-[100px] object-contain" />}
                   <div className="flex-1">
                     <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-                      <h3 className="text-xl font-semibold">{org.name}</h3>
-                      <span className="text-gray-400 md:ml-2">
+                      <h3 className="text-xl font-semibold text-white">{org.name}</h3>
+                      <span className="text-gray-300 md:ml-2">
                         {org.period}
                       </span>
                     </div>
-                    <p className="text-gray-600">{org.description}</p>
+                    <p className="text-gray-200">{org.description}</p>
                   </div>
                 </div>
               </motion.div>

@@ -8,17 +8,17 @@ import { OddJobs } from './components/OddJobs';
 import { Values } from './components/Values';
 import { WhoIAm } from './components/WhoIAm';
 export function App() {
-  return <div className="w-full min-h-screen bg-white">
+  return <div className="w-full min-h-screen bg-[#124734]">
       <Header />
       <main>
         <Hero />
         <About />
-        <section className="py-20 px-6 bg-white">
+        <section className="py-20 px-6 bg-[#2d5a47]">
           <div className="max-w-5xl mx-auto">
             <OddJobs />
           </div>
         </section>
-        <section className="py-20 px-6 bg-gray-50">
+        <section className="py-20 px-6 bg-[#124734]">
           <div className="max-w-5xl mx-auto">
             <Values />
           </div>

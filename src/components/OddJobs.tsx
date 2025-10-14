@@ -27,16 +27,16 @@ export const OddJobs = () => {
   }];
   return <AnimateOnScroll>
       <div className="mt-2">
-        <h3 className="text-3xl font-bold mb-8">Odd Jobs & What I Learned</h3>
+        <h3 className="text-3xl font-bold mb-8 text-white">Odd Jobs & What I Learned</h3>
         <div className="grid gap-6">
           {jobs.map((job, index) => <motion.div key={index} whileHover={{
           scale: 1.01
-        }} className="p-6 bg-white rounded-lg border border-gray-100 hover:border-gray-200 transition-all">
+        }} className="p-6 bg-white/10 rounded-lg border border-gray-300 hover:border-gray-200 transition-all">
               <div className="flex gap-4">
-                <div className="mt-1 text-gray-700">{job.icon}</div>
+                <div className="mt-1 text-white">{job.icon}</div>
                 <div>
-                  <h4 className="text-lg font-semibold mb-2">{job.title}</h4>
-                  <p className="text-gray-600">{job.description}</p>
+                  <h4 className="text-lg font-semibold mb-2 text-white">{job.title}</h4>
+                  <p className="text-gray-200">{job.description}</p>
                 </div>
               </div>
             </motion.div>)}

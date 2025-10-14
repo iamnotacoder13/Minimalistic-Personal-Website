@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 export const Hero = () => {
-  return <section className="min-h-screen flex items-center justify-center px-6 bg-white">
+  return <section className="min-h-screen flex items-center justify-center px-6 bg-[#124734]">
       <div className="max-w-3xl text-center">
         {/* Circular Photo */}
         <motion.div
@@ -44,7 +44,7 @@ export const Hero = () => {
             initial={{ opacity: 0, y: -50, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="text-4xl md:text-6xl font-bold relative z-10"
+            className="text-4xl md:text-6xl font-bold relative z-10 text-white"
           >
             Hello, I'm Mason Ferré
           </motion.h1>
@@ -59,7 +59,7 @@ export const Hero = () => {
           duration: 0.8,
           delay: 0.2,
           ease: [0.22, 1, 0.36, 1]
-        }} className="text-xl md:text-2xl text-gray-600 mb-8">
+        }} className="text-xl md:text-2xl text-gray-200 mb-8">
           A passionate individual building community and a sustainable future.
         </motion.p>
         <motion.a initial={{

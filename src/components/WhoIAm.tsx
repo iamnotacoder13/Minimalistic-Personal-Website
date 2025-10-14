@@ -82,10 +82,10 @@ export const WhoIAm = () => {
   };
 
   return (
-    <section id="who-i-am" className="py-20 px-6 bg-gray-50">
+    <section id="who-i-am" className="py-20 px-6 bg-[#2d5a47]">
       <div className="max-w-5xl mx-auto">
         <AnimateOnScroll>
-          <h2 className="text-3xl font-bold mb-12">Who I Am</h2>
+          <h2 className="text-3xl font-bold mb-12 text-white">Who I Am</h2>
         </AnimateOnScroll>
         
         <div className="relative">
