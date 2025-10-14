@@ -21,16 +21,16 @@ export const Header: React.FC = () => {
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
-          <a href="#about" className="text-white hover:text-green-300 transition-colors">
+          <a href="#about" className="text-white hover:text-[#ff6b35] transition-colors">
             About
           </a>
-          <a href="#projects" className="text-white hover:text-green-300 transition-colors">
+          <a href="#projects" className="text-white hover:text-[#ff6b35] transition-colors">
             Work
           </a>
-          <a href="#contact" className="text-white hover:text-green-300 transition-colors">
+          <a href="#contact" className="text-white hover:text-[#ff6b35] transition-colors">
             Contact
           </a>
-          <a href="https://substack.com/@masonferre" target="_blank" rel="noopener noreferrer" className="text-white hover:text-green-300 transition-colors">
+          <a href="https://substack.com/@masonferre" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#ff6b35] transition-colors">
             Blog
           </a>
         </nav>
