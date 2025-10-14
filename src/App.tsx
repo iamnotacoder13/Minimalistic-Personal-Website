@@ -13,12 +13,12 @@ export function App() {
       <main>
         <Hero />
         <About />
-        <section className="py-20 px-6 bg-[#2d5a47]">
+        <section className="py-20 px-6 bg-[#124734]">
           <div className="max-w-5xl mx-auto">
             <OddJobs />
           </div>
         </section>
-        <section className="py-20 px-6 bg-[#124734]">
+        <section className="py-20 px-6 bg-[#2d5a47]">
           <div className="max-w-5xl mx-auto">
             <Values />
           </div>
