@@ -5,7 +5,7 @@ export const Organizations = () => {
   const organizations = [{
     name: 'Arch',
     period: '2025 - Present',
-    description: 'Arch is a Series A fintech startup that is working to automate the post-investment process for alts investors. I am apart of the Operations team, where I work to onboard our clients and ensure our business is ticking.',
+    description: 'Arch is a Series B fintech startup that is working to automate the post-investment process for alts investors. I am apart of the Operations team, where I work to onboard our clients and ensure our business is ticking.',
     logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/download.jpeg',
     website: 'https://arch.co/'
   },{
@@ -16,7 +16,7 @@ export const Organizations = () => {
   }, {
     name: 'Oregon Consulting Group',
     period: '2022 - 2025',
-    description: 'I have worked with the Oregon Consulting Group (OCG) for the past two and a half years as a Consultant, Account Manager, Project Manager, Senior Manager, and President. The OCG is a student-run strategy consulting firm housed out of the Lundquist College of Business at the University of Oregon. I have been staffed on multiple projects with amazing clients, focusing on business strategy and expansion. My past clients include a healthcare per diem staffing startup, an electrochemistry lab startup, and a >$1B AUM regional bank. Under my leadership, our group has landed a US-leading Kombucha manufacturer and a $3B+ valued lithium-ion battery material producer.',
+    description: 'I worked with the Oregon Consulting Group (OCG) for two and a half years as a Consultant, Account Manager, Project Manager, Senior Manager, and President. The OCG is a student-run strategy consulting firm housed out of the Lundquist College of Business at the University of Oregon. I have been staffed on multiple projects with amazing clients, focusing on business strategy and expansion. My past clients include a healthcare per diem staffing startup, an electrochemistry lab startup, and a >$1B AUM regional bank. Under my leadership, our group landed a US-leading Kombucha manufacturer and a $3B+ valued lithium-ion battery material producer as clients.',
     logo: 'https://github.com/iamnotacoder13/images/blob/main/Workmark_Slogan_Green.png?raw=true',
     website: 'https://oregonconsultinggroup.com'
   }, {
