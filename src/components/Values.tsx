@@ -46,8 +46,10 @@ export const Values = () => {
                 </div>
 
                 {/* Back Side */}
-                <div className="absolute w-full h-full bg-[#154733] text-white rounded-lg p-6 backface-hidden transform rotate-y-180 flex items-center justify-center text-sm text-center">
-                  {value.description}
+                <div className="absolute w-full h-full bg-white border border-gray-200 rounded-lg shadow-lg backface-hidden transform rotate-y-180 flex items-center justify-center text-sm text-center p-6">
+                  <p className="text-[#154733] leading-relaxed">
+                    {value.description}
+                  </p>
                 </div>
               </div>
             </div>)}
