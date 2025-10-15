@@ -154,7 +154,7 @@ export const WhoIAm = () => {
         <AnimateOnScroll>
           <div className="mt-12 text-center max-w-3xl mx-auto">
             <p className="text-lg text-gray-200 leading-relaxed">
-              I am a passionate individual who is pursuing a life of fulfillment, adventure, meaningful work, and a lot of laughter. My mind shuts off, and I enter flow, when I am exploring outside, learning new concepts, and working in teams. Here are some photos of my journey so far!
+              I am a <span className="font-bold text-[#ff6b35]">passionate</span> individual who is pursuing a life of fulfillment, adventure, meaningful work, and a lot of laughter. My mind shuts off, and I enter flow, when I am exploring outside, learning new concepts, and working in teams. Here are some photos of my journey so far!
             </p>
           </div>
         </AnimateOnScroll>
