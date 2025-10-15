@@ -10,23 +10,23 @@ interface ValueItem {
 export const Values = () => {
   const values: ValueItem[] = [{
     title: 'INTEGRITY',
-    description: 'Having strong morals and sticking to them is something I practice. Those who have a <span className="font-bold text-[#ff6b35]">strong moral compass</span> tend to attract like-minded individuals and make meaningful impacts.',
+    description: 'Having strong morals and sticking to them is something I practice. Those who have a <span class="font-bold text-[#ff6b35]">strong moral compass</span> tend to attract like-minded individuals and make meaningful impacts.',
     icon: <ShieldIcon className="w-10 h-10 text-[#154733]" />
   }, {
     title: 'EMPATHY',
-    description: '<span className="font-bold text-[#ff6b35]">Genuinely caring</span> for others is essential to building relationships and leadership.',
+    description: '<span class="font-bold text-[#ff6b35]">Genuinely caring</span> for others is essential to building relationships and leadership.',
     icon: <HeartIcon className="w-10 h-10 text-[#154733]" />
   }, {
     title: 'AUTHENTICITY',
-    description: 'Being my authentic self allows others to <span className="font-bold text-[#ff6b35]">trust</span> and <span className="font-bold text-[#ff6b35]">connect</span> with me more quickly.',
+    description: 'Being my authentic self allows others to <span class="font-bold text-[#ff6b35]">trust</span> and <span class="font-bold text-[#ff6b35]">connect</span> with me more quickly.',
     icon: <UserIcon className="w-10 h-10 text-[#154733]" />
   }, {
     title: 'THE SMALL THINGS',
-    description: '<span className="font-bold text-[#ff6b35]">Little actions</span> like being responsive or helping out build <span className="font-bold text-[#ff6b35]">lasting</span> impressions and character.',
+    description: '<span class="font-bold text-[#ff6b35]">Little actions</span> like being responsive or helping out build <span class="font-bold text-[#ff6b35]">lasting</span> impressions and character.',
     icon: <StarIcon className="w-10 h-10 text-[#154733]" />
   }, {
     title: 'PROGRESS',
-    description: 'I strive to be <span className="font-bold text-[#ff6b35]">1% better</span> every day—steady, intentional improvement adds up.',
+    description: 'I strive to be <span class="font-bold text-[#ff6b35]">1% better</span> every day—steady, intentional improvement adds up.',
     icon: <TrendingUpIcon className="w-10 h-10 text-[#154733]" />
   }];
   return <AnimateOnScroll>
