@@ -16,14 +16,18 @@ export const Hero = () => {
             rel="noopener noreferrer"
             className="cursor-pointer hover:opacity-90 transition-opacity"
           >
-            <div className="w-52 h-52 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg">
+            <motion.div
+              className="w-52 h-52 rounded-full overflow-hidden border-4 border-gray-200 shadow-lg"
+              whileHover={{ rotate: 15 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+            >
               {/* Replace the src with your actual photo path */}
               <img
                 src="/mason-photo.jpg" // Update this path to your actual photo
                 alt="Mason Ferré"
                 className="w-full h-full object-cover"
               />
-            </div>
+            </motion.div>
           </a>
         </motion.div>
 

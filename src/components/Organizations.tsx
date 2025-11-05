@@ -17,7 +17,7 @@ export const Organizations = () => {
     name: 'Oregon Consulting Group',
     period: '2022 - 2025',
     description: 'I worked with the Oregon Consulting Group (OCG) for two and a half years as a Consultant, Account Manager, Project Manager, Senior Manager, and President. The OCG is a student-run strategy consulting firm housed out of the Lundquist College of Business at the University of Oregon. I have been staffed on multiple projects with amazing clients, focusing on business strategy and expansion. My past clients include a healthcare per diem staffing startup, an electrochemistry lab startup, and a >$1B AUM regional bank. Under my leadership, our group landed a US-leading Kombucha manufacturer and a $3B+ valued lithium-ion battery material producer as clients.',
-    logo: 'https://github.com/iamnotacoder13/images/blob/main/Wordmark_Blank_White.png',
+    logo: 'https://github.com/iamnotacoder13/images/blob/main/Screenshot_2025-10-17_at_4.17.44_PM-removebg-preview.png?raw=true',
     website: 'https://oregonconsultinggroup.com'
   }, {
     name: 'July AI',
@@ -31,7 +31,7 @@ export const Organizations = () => {
     description: 'My roommate and I co-founded Beer Me., a hoodie that holds your beer. We received $5K in funding from the Oregon Innovation Challenge to launch our first collection of hoodies. I helped lead operations, sales, and marketing, leading to 200+ sold hoodies. In May 2025 we sold the company.',
     logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/refs/heads/main/Black%20Logo.avif'
   }];
-  return <section id="projects" className="py-20 px-6 bg-[#124734]">
+  return <section id="projects" className="py-20 px-6 bg-[#2d5a47]">
       <div className="max-w-5xl mx-auto">
         <AnimateOnScroll>
           <h2 className="text-3xl font-bold mb-12 text-white">Amazing Organizations I Have Worked With</h2>
