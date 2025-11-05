@@ -71,7 +71,7 @@ export const YouTube = () => {
       <section id="youtube" className="py-20 px-6 bg-[#124734]">
         <div className="max-w-5xl mx-auto">
           <AnimateOnScroll>
-            <h2 className="text-3xl font-bold mb-8 text-white">Latest Video</h2>
+            <h2 className="text-3xl font-bold mb-8 text-white">mason's thoughts</h2>
           </AnimateOnScroll>
           <div className="flex items-center justify-center py-20">
             <div className="text-gray-300">Loading latest video...</div>
@@ -86,7 +86,7 @@ export const YouTube = () => {
       <section id="youtube" className="py-20 px-6 bg-[#124734]">
         <div className="max-w-5xl mx-auto">
           <AnimateOnScroll>
-            <h2 className="text-3xl font-bold mb-8 text-white">Latest Video</h2>
+            <h2 className="text-3xl font-bold mb-8 text-white">mason's thoughts</h2>
           </AnimateOnScroll>
           <div className="flex items-center justify-center py-20">
             <div className="text-gray-300">
