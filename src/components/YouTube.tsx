@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AnimateOnScroll } from './AnimateOnScroll';
 import { motion } from 'framer-motion';
 
@@ -9,86 +9,118 @@ export const YouTube = () => {
   const [videoId, setVideoId] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const videoIdRef = useRef<string | null>(null);
 
   useEffect(() => {
     // Fetch the latest video from RSS feed
-    const fetchLatestVideo = async () => {
+    const fetchLatestVideo = async (isInitialLoad = false) => {
       try {
+        // Add cache-busting parameter to prevent stale data
+        const cacheBuster = Date.now();
+        const feedUrlWithCache = `${RSS_FEED_URL}&_=${cacheBuster}`;
+        
         // Use a CORS proxy to fetch the RSS feed
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(RSS_FEED_URL)}`;
+        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(feedUrlWithCache)}`;
         const response = await fetch(proxyUrl);
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const data = await response.json();
+        
+        if (!data.contents) {
+          throw new Error('No content received from RSS feed');
+        }
         
         // Parse the XML content
         const parser = new DOMParser();
         const xmlDoc = parser.parseFromString(data.contents, 'text/xml');
         
-        // Get the first entry (latest video)
-        const entry = xmlDoc.querySelector('entry');
-        if (entry) {
-          // Extract video ID from the entry link or videoId element
-          // The link format is: https://www.youtube.com/watch?v=VIDEO_ID
-          const linkElement = entry.querySelector('link');
-          if (linkElement) {
-            const href = linkElement.getAttribute('href');
-            if (href) {
-              // Extract video ID from URL
-              const match = href.match(/[?&]v=([^&]+)/);
-              if (match && match[1]) {
-                const newVideoId = match[1];
-                // Only update if the video ID has changed (new video posted)
-                if (newVideoId !== videoId) {
-                  setVideoId(newVideoId);
-                }
-                setLoading(false);
-                setError(false);
-                return;
-              }
+        // Check for parsing errors
+        const parseError = xmlDoc.querySelector('parsererror');
+        if (parseError) {
+          console.error('XML parsing error:', parseError.textContent);
+          throw new Error('Failed to parse RSS feed');
+        }
+        
+        // Get all entries and select the first one (latest video)
+        const entries = xmlDoc.querySelectorAll('entry');
+        if (entries.length === 0) {
+          throw new Error('No video entries found in RSS feed');
+        }
+        
+        const entry = entries[0]; // First entry is the latest video
+        
+        let newVideoId: string | null = null;
+        
+        // Try to extract video ID from the link element
+        const linkElement = entry.querySelector('link');
+        if (linkElement) {
+          const href = linkElement.getAttribute('href');
+          if (href) {
+            // Extract video ID from URL
+            const match = href.match(/[?&]v=([^&]+)/);
+            if (match && match[1]) {
+              newVideoId = match[1];
             }
           }
-          
-          // Fallback: try to get videoId element (with namespace handling)
+        }
+        
+        // Fallback: try to get videoId element (with namespace handling)
+        if (!newVideoId) {
           const videoIdElement = entry.getElementsByTagNameNS('http://www.youtube.com/xml/schemas/2015', 'videoId')[0] ||
                                 entry.querySelector('videoId');
-          if (videoIdElement) {
-            const id = videoIdElement.textContent;
-            if (id) {
-              // Only update if the video ID has changed (new video posted)
-              if (id !== videoId) {
-                setVideoId(id);
-              }
-              setLoading(false);
-              setError(false);
-              return;
+          if (videoIdElement && videoIdElement.textContent) {
+            newVideoId = videoIdElement.textContent.trim();
+          }
+        }
+        
+        // Fallback: try to get video ID from the entry ID
+        if (!newVideoId) {
+          const entryId = entry.querySelector('id');
+          if (entryId && entryId.textContent) {
+            // YouTube entry IDs are in format: yt:video:VIDEO_ID
+            const match = entryId.textContent.match(/video:([^:]+)$/);
+            if (match && match[1]) {
+              newVideoId = match[1];
             }
           }
         }
-        // Only set error if we haven't loaded a video yet
-        if (!videoId) {
-          setError(true);
+        
+        if (newVideoId) {
+          // Always update on initial load, or if video ID changed
+          if (isInitialLoad || newVideoId !== videoIdRef.current) {
+            setVideoId(newVideoId);
+            videoIdRef.current = newVideoId;
+            setError(false);
+          }
+        } else {
+          throw new Error('Could not extract video ID from RSS feed');
         }
+        
         setLoading(false);
       } catch (err) {
         console.error('Error fetching YouTube video:', err);
         // Only set error if we haven't loaded a video yet
-        if (!videoId) {
+        if (!videoIdRef.current || isInitialLoad) {
           setError(true);
         }
         setLoading(false);
       }
     };
 
-    // Initial fetch
-    fetchLatestVideo();
+    // Initial fetch - always update on first load
+    fetchLatestVideo(true);
 
-    // Poll for new videos every 10 minutes (600000 ms)
+    // Poll for new videos every 5 minutes (300000 ms) - more frequent updates
     const pollInterval = setInterval(() => {
-      fetchLatestVideo();
-    }, 600000); // 10 minutes
+      fetchLatestVideo(false);
+    }, 300000); // 5 minutes
 
     // Cleanup interval on unmount
     return () => clearInterval(pollInterval);
-  }, [videoId]);
+  }, []); // Empty dependency array - only run once on mount
 
   if (loading) {
     return (
@@ -157,4 +189,5 @@ export const YouTube = () => {
     </section>
   );
 };
+
 
