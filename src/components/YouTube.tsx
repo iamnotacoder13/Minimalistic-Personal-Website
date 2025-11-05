@@ -35,8 +35,13 @@ export const YouTube = () => {
               // Extract video ID from URL
               const match = href.match(/[?&]v=([^&]+)/);
               if (match && match[1]) {
-                setVideoId(match[1]);
+                const newVideoId = match[1];
+                // Only update if the video ID has changed (new video posted)
+                if (newVideoId !== videoId) {
+                  setVideoId(newVideoId);
+                }
                 setLoading(false);
+                setError(false);
                 return;
               }
             }
@@ -48,23 +53,42 @@ export const YouTube = () => {
           if (videoIdElement) {
             const id = videoIdElement.textContent;
             if (id) {
-              setVideoId(id);
+              // Only update if the video ID has changed (new video posted)
+              if (id !== videoId) {
+                setVideoId(id);
+              }
               setLoading(false);
+              setError(false);
               return;
             }
           }
         }
-        setError(true);
+        // Only set error if we haven't loaded a video yet
+        if (!videoId) {
+          setError(true);
+        }
         setLoading(false);
       } catch (err) {
         console.error('Error fetching YouTube video:', err);
-        setError(true);
+        // Only set error if we haven't loaded a video yet
+        if (!videoId) {
+          setError(true);
+        }
         setLoading(false);
       }
     };
 
+    // Initial fetch
     fetchLatestVideo();
-  }, []);
+
+    // Poll for new videos every 10 minutes (600000 ms)
+    const pollInterval = setInterval(() => {
+      fetchLatestVideo();
+    }, 600000); // 10 minutes
+
+    // Cleanup interval on unmount
+    return () => clearInterval(pollInterval);
+  }, [videoId]);
 
   if (loading) {
     return (
@@ -111,7 +135,7 @@ export const YouTube = () => {
     <section id="youtube" className="py-20 px-6 bg-[#124734]">
       <div className="max-w-5xl mx-auto">
         <AnimateOnScroll>
-          <h2 className="text-3xl font-bold mb-8 text-white">Latest Video</h2>
+          <h2 className="text-3xl font-bold mb-8 text-white">mason's thoughts</h2>
         </AnimateOnScroll>
         <AnimateOnScroll>
           <motion.div
