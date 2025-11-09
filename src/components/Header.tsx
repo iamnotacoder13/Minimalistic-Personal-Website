@@ -28,9 +28,6 @@ export const Header: React.FC = () => {
             Work
           </a>
           <a href="#contact" className="text-white hover:text-[#ff6b35] transition-colors">
-            Contact
-          </a>
-          <a href="https://substack.com/@masonferre" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#ff6b35] transition-colors">
             Blog
           </a>
         </nav>
@@ -65,15 +62,6 @@ export const Header: React.FC = () => {
             </a>
             <a 
               href="#contact" 
-              className="hover:text-red-600 transition-colors py-2"
-              onClick={closeMenu}
-            >
-              Contact
-            </a>
-            <a 
-              href="https://substack.com/@masonferre" 
-              target="_blank" 
-              rel="noopener noreferrer" 
               className="hover:text-purple-600 transition-colors py-2"
               onClick={closeMenu}
             >
