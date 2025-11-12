@@ -29,7 +29,8 @@ export const Organizations = () => {
     name: 'Beer Me.',
     period: '2024-2025',
     description: 'My roommate and I co-founded Beer Me., a hoodie that holds your beer. We received $5K in funding from the Oregon Innovation Challenge to launch our first collection of hoodies. I helped lead operations, sales, and marketing, leading to 200+ sold hoodies. In May 2025 we sold the company.',
-    logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/refs/heads/main/Black%20Logo.avif'
+    logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/refs/heads/main/Black%20Logo.avif',
+    website: 'https://shopbeerme.com/'
   }];
   return <section id="projects" className="py-20 px-6 bg-[#2d5a47]">
       <div className="max-w-5xl mx-auto">
