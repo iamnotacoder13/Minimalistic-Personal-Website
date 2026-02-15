@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 export const Organizations = () => {
   const organizations = [{
     name: 'Arch',
-    period: '2025 - Present',
+    period: '2025 - 2026',
     description: 'Arch is a Series B fintech startup that is working to automate the post-investment process for alts investors. I am apart of the Operations team, where I work to onboard our clients and ensure our business is ticking.',
     logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/download.jpeg',
     website: 'https://arch.co/'
