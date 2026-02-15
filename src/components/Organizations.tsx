@@ -3,16 +3,16 @@ import { AnimateOnScroll } from './AnimateOnScroll';
 import { motion } from 'framer-motion';
 export const Organizations = () => {
   const organizations = [{
+    name: 'Taob Holdings',
+    period: '2022 - Present',
+    description: 'Growing a small real estate portfolio. Focused on multi-family and small scale commercial units across the PNW and Nashville area.',
+    logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/refs/heads/main/Screenshot%202023-11-05%20at%2012_15_38%20PM.avif'
+  }, {
     name: 'Arch',
     period: '2025 - 2026',
     description: 'Worked on automating the post-investment process for alts investors. Had the itch to do my own thing. Left in 2026.',
     logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/download.jpeg',
     website: 'https://arch.co/'
-  },{
-    name: 'Taob Holdings',
-    period: '2022 - Present',
-    description: 'Growing a small real estate portfolio. Focused on multi-family and small scale commercial units across the PNW and Nashville area.',
-    logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/refs/heads/main/Screenshot%202023-11-05%20at%2012_15_38%20PM.avif'
   }, {
     name: 'Oregon Consulting Group',
     period: '2022 - 2025',
