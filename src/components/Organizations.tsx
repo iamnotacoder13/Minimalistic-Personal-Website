@@ -5,7 +5,7 @@ export const Organizations = () => {
   const organizations = [{
     name: 'Arch',
     period: '2025 - 2026',
-    description: 'Arch is a Series B fintech startup that is working to automate the post-investment process for alts investors. I am apart of the Operations team, where I work to onboard our clients and ensure our business is ticking.',
+    description: 'Arch is a Series B fintech startup that is working to automate the post-investment process for alts investors. I sat on the operations team, onboarding clients and ensuring the business ticked. I left Arch early 2026 to pursue my own ventures.',
     logo: 'https://raw.githubusercontent.com/iamnotacoder13/images/main/download.jpeg',
     website: 'https://arch.co/'
   },{
