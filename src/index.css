@@ -1,53 +1,58 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-    .perspective {
-    perspective: 1000px;
-    }
-    .preserve-3d {
-    transform-style: preserve-3d;
-    }
-    .backface-hidden {
-    backface-visibility: hidden;
-    }
-.rotate-y-180 {
-  transform: rotateY(180deg);
+
+:root {
+  --dark:         #07101f;
+  --dark-2:       #0b1627;
+  --dark-3:       #0f1f35;
+  --blue:         #3b82f6;
+  --blue-light:   #7dd3fc;
+  --blue-dim:     #1e40af;
+  --blue-muted:   #1d3a6b;
+  --text:         #e0f2fe;
+  --text-muted:   #64748b;
+  --text-faint:   #334155;
+  --cream:        #f0f8ff;
+  --font-display: 'Lora', Georgia, serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
 }
-/* Custom big cursor class */
-.big-cursor {
-  cursor: none;
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+  background: var(--dark);
 }
-.cursor-circle {
-  pointer-events: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 40px;
-  height: 40px;
-  border: 2px solid #154733;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-.cursor-hovered {
-  width: 60px;
-  height: 60px;
-  background-color: #15473333;
+
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
-/* Flip card utilities for Tailwind */
-.perspective {
-  perspective: 1200px;
+
+.ticker-track {
+  animation: ticker-scroll 22s linear infinite;
+  display: flex;
+  white-space: nowrap;
+  will-change: transform;
 }
-.preserve-3d {
-  transform-style: preserve-3d;
+
+@keyframes badge-sway {
+  0%, 100% { transform: rotate(-3deg); }
+  50%       { transform: rotate(3deg); }
 }
-.backface-hidden {
-  backface-visibility: hidden;
-}
-.rotate-y-180 {
-  transform: rotateY(180deg);
-}
-.group:hover .group-hover\:rotate-y-180 {
-  transform: rotateY(180deg);
+
+.badge-sway {
+  animation: badge-sway 5s ease-in-out infinite;
+  transform-origin: top center;
 }
