@@ -6,8 +6,9 @@ export const Footer: React.FC = () => {
   const isMobile = useMediaQuery('(max-width: 640px)');
   return (
   <div style={{ position: 'relative', background: 'var(--dark)' }}>
-    {/* Mountain overlay — mirrors the hero bottom */}
-    <div style={{ position: 'relative', height: isMobile ? '240px' : '380px', overflow: 'hidden' }}>
+    {/* Mountain overlay — mirrors the hero bottom. Height must stay >=380px
+        so the SVG's top peaks aren't clipped by the container. */}
+    <div style={{ position: 'relative', height: '380px', overflow: 'hidden' }}>
       <MountainScene />
     </div>
 
