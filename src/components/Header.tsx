@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 export const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  const isNarrow = useMediaQuery('(max-width: 480px)');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -36,7 +39,7 @@ export const Header: React.FC = () => {
       position: 'fixed',
       top: 0, left: 0, right: 0,
       zIndex: 100,
-      padding: '18px 36px',
+      padding: isMobile ? '14px 18px' : '18px 36px',
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
@@ -57,9 +60,9 @@ export const Header: React.FC = () => {
         <em>MF</em>
       </a>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '28px' }}>
-        {/* Nav links */}
-        {[['#about', 'About'], ['#peaks', 'My Climbs']].map(([href, label]) => (
+      <div style={{ display: 'flex', alignItems: 'center', gap: isMobile ? '14px' : '28px' }}>
+        {/* Nav links — hidden on very narrow screens to preserve icon row */}
+        {!isNarrow && [['#about', 'About'], ['#peaks', 'My Climbs']].map(([href, label]) => (
           <a key={label} href={href} style={linkStyle}
             onMouseEnter={e => hover(e, true)}
             onMouseLeave={e => hover(e, false)}>
@@ -68,7 +71,7 @@ export const Header: React.FC = () => {
         ))}
 
         {/* Divider */}
-        <span style={{ width: '1px', height: '16px', background: 'var(--text-faint)', opacity: 0.4 }} />
+        {!isNarrow && <span style={{ width: '1px', height: '16px', background: 'var(--text-faint)', opacity: 0.4 }} />}
 
         {/* Email icon */}
         <a href="mailto:masondferre@gmail.com" aria-label="Email" style={iconStyle}

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useSpring, AnimatePresence } from 'framer-motion';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 // Smaller snow particles
 const PARTICLES = [
@@ -63,12 +64,14 @@ export const ScrollSnowboarder: React.FC = () => {
   const [visible, setVisible] = useState(false);
   const [dirX,    setDirX]    = useState<-1 | 1>(1);
   const lastX = useRef<number | null>(null);
+  const isTouch = useMediaQuery('(hover: none), (pointer: coarse)');
 
   const springX      = useSpring(200, { stiffness: 120, damping: 18 });
   const springY      = useSpring(200, { stiffness: 100, damping: 16 });
   const springRotate = useSpring(0,   { stiffness: 80,  damping: 20 });
 
   useEffect(() => {
+    if (isTouch) return;
     const onMove = (e: MouseEvent) => {
       const cx = e.clientX - 28; // center the figure on cursor
       const cy = e.clientY - 39;
@@ -98,7 +101,9 @@ export const ScrollSnowboarder: React.FC = () => {
       document.removeEventListener('mouseleave', onLeave);
       document.removeEventListener('mouseenter', onEnter);
     };
-  }, [springX, springY, springRotate]);
+  }, [springX, springY, springRotate, isTouch]);
+
+  if (isTouch) return null;
 
   return (
     <AnimatePresence>

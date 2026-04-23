@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 // ── Star field ───────────────────────────────────────────────────────────────
 // 4 tiers matching real night sky reference:
@@ -301,7 +302,9 @@ const PhotoBadge: React.FC = () => (
 );
 
 // ── Hero ─────────────────────────────────────────────────────────────────────
-export const Hero: React.FC = () => (
+export const Hero: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  return (
   <section style={{
     minHeight: '100vh',
     background: 'var(--dark)',
@@ -312,7 +315,7 @@ export const Hero: React.FC = () => (
     textAlign: 'center',
     position: 'relative',
     overflow: 'hidden',
-    padding: '60px 24px 80px',
+    padding: isMobile ? '80px 16px 60px' : '60px 24px 80px',
   }}>
     {/* Radial glow */}
     <div style={{
@@ -350,12 +353,13 @@ export const Hero: React.FC = () => (
       </motion.p>
 
       {/* Heading with gold circle animation */}
-      <div style={{ position: 'relative', display: 'inline-block', marginBottom: '36px', padding: '12px 24px' }}>
+      <div style={{ position: 'relative', display: 'inline-block', marginBottom: '36px', padding: isMobile ? '10px 18px' : '12px 24px' }}>
         <svg
           style={{
             position: 'absolute',
-            top: '-8px', left: '-72px',
-            width: 'calc(100% + 144px)',
+            top: '-8px',
+            left: isMobile ? '-36px' : '-72px',
+            width: isMobile ? 'calc(100% + 72px)' : 'calc(100% + 144px)',
             height: 'calc(100% + 16px)',
             pointerEvents: 'none',
             overflow: 'visible',
@@ -397,13 +401,14 @@ export const Hero: React.FC = () => (
         animate={{ opacity: 1 }}
         transition={{ duration: 1.2, delay: 0.55 }}
         style={{
-          fontSize: '11px',
+          fontSize: isMobile ? '10px' : '11px',
           letterSpacing: '0.22em',
           color: 'var(--text-muted)',
           textTransform: 'uppercase',
           fontFamily: 'var(--font-body)',
           fontWeight: 500,
-          marginBottom: '64px',
+          marginBottom: isMobile ? '40px' : '64px',
+          padding: isMobile ? '0 8px' : 0,
         }}
       >
         Bozeman-based — comfortable with the altitude
@@ -432,4 +437,5 @@ export const Hero: React.FC = () => (
       </motion.svg>
     </motion.div>
   </section>
-);
+  );
+};

@@ -1,14 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
-export const Closing: React.FC = () => (
+export const Closing: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  return (
   <section id="contact" style={{
     background: '#050c18',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    padding: '80px 24px 40px',
+    padding: isMobile ? '60px 18px 32px' : '80px 24px 40px',
     position: 'relative',
     overflow: 'hidden',
   }}>
@@ -84,4 +87,5 @@ export const Closing: React.FC = () => (
       </motion.div>
     </div>
   </section>
-);
+  );
+};

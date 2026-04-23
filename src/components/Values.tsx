@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 interface ValueItem {
   title: string;
@@ -119,7 +120,7 @@ const FLOATS = [
 ];
 
 // ── Single crystal card ───────────────────────────────────────────────────────
-const IceCrystalCard: React.FC<{ value: ValueItem; index: number }> = ({ value, index }) => {
+const IceCrystalCard: React.FC<{ value: ValueItem; index: number; width: number; height: number }> = ({ value, index, width, height }) => {
   const [revealed, setRevealed] = useState(false);
   const crystal = CRYSTALS[index];
   const fl = FLOATS[index];
@@ -128,7 +129,7 @@ const IceCrystalCard: React.FC<{ value: ValueItem; index: number }> = ({ value, 
     <motion.div
       animate={{ y: [0, -fl.amplitude, 0] }}
       transition={{ duration: fl.duration, delay: fl.delay, repeat: Infinity, ease: 'easeInOut' }}
-      style={{ position: 'relative', width: 178, height: 248, cursor: 'pointer', flexShrink: 0 }}
+      style={{ position: 'relative', width, height, cursor: 'pointer', flexShrink: 0 }}
       onClick={() => setRevealed(r => !r)}
     >
       {/* Soft glow pool beneath — brightens when revealed */}
@@ -249,10 +250,16 @@ const IceCrystalCard: React.FC<{ value: ValueItem; index: number }> = ({ value, 
 };
 
 // ── Section ───────────────────────────────────────────────────────────────────
-export const Values: React.FC = () => (
+export const Values: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  const isTablet = useMediaQuery('(max-width: 900px)');
+  const crystalW = isMobile ? 132 : isTablet ? 158 : 178;
+  const crystalH = isMobile ? 186 : isTablet ? 220 : 248;
+  const rowGap = isMobile ? 18 : isTablet ? 28 : 44;
+  return (
   <section style={{
     background: 'var(--dark)',
-    padding: '120px 24px 140px',
+    padding: isMobile ? '80px 16px 100px' : '120px 24px 140px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
@@ -312,21 +319,22 @@ export const Values: React.FC = () => (
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 1, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '52px' }}
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: isMobile ? 28 : 52 }}
     >
       {/* Row 1 */}
-      <div style={{ display: 'flex', gap: '44px', alignItems: 'flex-end' }}>
+      <div style={{ display: 'flex', gap: `${rowGap}px`, alignItems: 'flex-end', flexWrap: 'wrap', justifyContent: 'center' }}>
         {VALUES.slice(0, 3).map((value, i) => (
-          <IceCrystalCard key={value.title} value={value} index={i} />
+          <IceCrystalCard key={value.title} value={value} index={i} width={crystalW} height={crystalH} />
         ))}
       </div>
 
       {/* Row 2 — 2 crystals centered under the gaps of row 1 */}
-      <div style={{ display: 'flex', gap: '44px', alignItems: 'flex-end' }}>
+      <div style={{ display: 'flex', gap: `${rowGap}px`, alignItems: 'flex-end', flexWrap: 'wrap', justifyContent: 'center' }}>
         {VALUES.slice(3, 5).map((value, i) => (
-          <IceCrystalCard key={value.title} value={value} index={i + 3} />
+          <IceCrystalCard key={value.title} value={value} index={i + 3} width={crystalW} height={crystalH} />
         ))}
       </div>
     </motion.div>
   </section>
-);
+  );
+};

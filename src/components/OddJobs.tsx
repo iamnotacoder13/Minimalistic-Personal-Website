@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 const JOBS = [
   {
@@ -122,10 +123,12 @@ const JobCard: React.FC<{ job: (typeof JOBS)[0]; index: number }> = ({ job, inde
   </motion.div>
 );
 
-export const OddJobs: React.FC = () => (
+export const OddJobs: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  return (
   <section style={{
     background: 'var(--dark)',
-    padding: '40px 48px 110px',
+    padding: isMobile ? '40px 18px 80px' : '40px 48px 110px',
     position: 'relative',
     overflow: 'hidden',
   }}>
@@ -156,8 +159,8 @@ export const OddJobs: React.FC = () => (
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-        gap: '24px',
+        gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit, minmax(260px, 1fr))',
+        gap: isMobile ? '18px' : '24px',
       }}>
         {JOBS.map((job, i) => (
           <JobCard key={job.role} job={job} index={i} />
@@ -165,4 +168,5 @@ export const OddJobs: React.FC = () => (
       </div>
     </div>
   </section>
-);
+  );
+};

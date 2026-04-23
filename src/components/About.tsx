@@ -1,10 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
-export const About: React.FC = () => (
+export const About: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  const Br = () => (isMobile ? <> </> : <br />);
+  return (
   <section id="about" style={{
     background: 'var(--dark)',
-    padding: '130px 24px 120px',
+    padding: isMobile ? '90px 18px 80px' : '130px 24px 120px',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -29,7 +33,7 @@ export const About: React.FC = () => (
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
         style={{
           fontFamily: 'var(--font-display)',
-          fontSize: 'clamp(26px, 3.8vw, 50px)',
+          fontSize: 'clamp(22px, 5.5vw, 50px)',
           fontWeight: 400,
           color: '#c7e0f4',
           lineHeight: 1.55,
@@ -39,18 +43,18 @@ export const About: React.FC = () => (
         <strong style={{ fontWeight: 700, color: 'white' }}>connector</strong>
         {' & '}
         <strong style={{ fontWeight: 700, color: 'white' }}>entrepreneur</strong>
-        {'.'}<br />
+        {'.'}<Br />
         from the{' '}
         <em style={{ fontStyle: 'italic', color: 'var(--blue-light)' }}>Pacific Northwest</em>
         {', now in '}
         <strong style={{ fontWeight: 600, color: 'white' }}>Bozeman</strong>
-        {'.'}<br />
+        {'.'}<Br />
         loves{' '}
         <strong style={{ fontWeight: 600, color: 'var(--blue-light)' }}>community-building</strong>
         {', '}
         <strong style={{ fontWeight: 600, color: 'var(--blue-light)' }}>outdoor adventure</strong>
-        {','}<br />
-        {'and strong coffee.'}<br />
+        {','}<Br />
+        {'and strong coffee.'}<Br />
         {'chasing '}
         <em style={{ fontStyle: 'italic', fontWeight: 600, color: 'var(--blue)' }}>peaks</em>
         {' in business and nature.'}
@@ -70,4 +74,5 @@ export const About: React.FC = () => (
       </motion.div>
     </div>
   </section>
-);
+  );
+};

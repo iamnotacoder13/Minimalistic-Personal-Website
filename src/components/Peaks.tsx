@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useMediaQuery } from '../hooks/useMediaQuery';
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 interface FaceDef { pts: string; tone: 0 | 1 | 2 | 3 | 4 }
@@ -304,7 +305,7 @@ const RANGE_COLOR: Record<number, [string, string]> = {
 };
 
 // ── Static Image Peak Component ───────────────────────────────────────────────
-const StaticPeakImage: React.FC<{ isHov: boolean; isSel: boolean; src: string; idx: number }> = ({ isHov, isSel, src, idx }) => {
+const StaticPeakImage: React.FC<{ isHov: boolean; isSel: boolean; src: string; idx: number; imgHeight?: number }> = ({ isHov, isSel, src, idx, imgHeight = 220 }) => {
   return (
     <motion.div
       animate={isHov
@@ -321,7 +322,7 @@ const StaticPeakImage: React.FC<{ isHov: boolean; isSel: boolean; src: string; i
       }
       style={{ pointerEvents: 'none' }}
     >
-      <img src={src} alt="Peak" style={{ height: '220px', width: 'auto', objectFit: 'contain', display: 'block' }} />
+      <img src={src} alt="Peak" style={{ height: `${imgHeight}px`, width: 'auto', maxWidth: '100%', objectFit: 'contain', display: 'block' }} />
     </motion.div>
   );
 };
@@ -330,12 +331,17 @@ const StaticPeakImage: React.FC<{ isHov: boolean; isSel: boolean; src: string; i
 export const Peaks: React.FC = () => {
   const [selected, setSelected] = useState<number | null>(null);
   const [hovered, setHovered] = useState<number | null>(null);
+  const isMobile = useMediaQuery('(max-width: 640px)');
+  const isTablet = useMediaQuery('(max-width: 900px)');
 
   const sel = PEAKS.find(p => p.id === selected) ?? null;
   const selPal = sel ? PALETTES[sel.id] : null;
 
+  const peakGridColumns = isMobile ? 'repeat(2, 1fr)' : isTablet ? 'repeat(3, 1fr)' : 'repeat(5, 1fr)';
+  const peakTileHeight = isMobile ? '170px' : isTablet ? '210px' : '260px';
+
   return (
-    <section id="peaks" style={{ padding: '110px 24px 40px' }}>
+    <section id="peaks" style={{ padding: isMobile ? '80px 16px 32px' : '110px 24px 40px' }}>
       <div style={{ maxWidth: '980px', margin: '0 auto' }}>
 
         {/* Header */}
@@ -364,7 +370,7 @@ export const Peaks: React.FC = () => {
         </div>
 
         {/* Peak emoji cards */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '16px', marginBottom: '40px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: peakGridColumns, gap: isMobile ? '10px' : '16px', marginBottom: '40px' }}>
           {PEAKS.map((peak, i) => {
             const isSel = selected === peak.id;
             const isHov = hovered === peak.id;
@@ -388,7 +394,7 @@ export const Peaks: React.FC = () => {
               >
                 {/* Emoji / Image */}
                 <div style={{
-                  height: '260px',
+                  height: peakTileHeight,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
@@ -401,7 +407,8 @@ export const Peaks: React.FC = () => {
                       4: '/ocg-mountain.jpg',
                       5: '/taob-mountain.jpg',
                     };
-                    return <StaticPeakImage isHov={isHov} isSel={isSel} src={srcMap[peak.id]} idx={i} />;
+                    const imgHeight = isMobile ? 140 : isTablet ? 180 : 220;
+                    return <StaticPeakImage isHov={isHov} isSel={isSel} src={srcMap[peak.id]} idx={i} imgHeight={imgHeight} />;
                   })()}
                 </div>
 
@@ -446,8 +453,13 @@ export const Peaks: React.FC = () => {
               exit={{ opacity: 0, y: -12 }}
               transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
               style={{
-                background: '#0b1627', borderRadius: '16px', padding: '36px 40px 55px',
-                display: 'flex', gap: '28px', alignItems: 'flex-start',
+                background: '#0b1627', borderRadius: '16px',
+                padding: isMobile ? '24px 22px 55px' : '36px 40px 55px',
+                display: 'flex',
+                flexDirection: isMobile ? 'column' : 'row',
+                gap: isMobile ? '18px' : '28px',
+                alignItems: isMobile ? 'center' : 'flex-start',
+                textAlign: isMobile ? 'center' : 'left',
                 position: 'relative', overflow: 'hidden',
                 border: `1px solid ${selPal.accentBorder}`,
               }}
@@ -466,8 +478,14 @@ export const Peaks: React.FC = () => {
               </div>
 
               {/* Info */}
-              <div style={{ flex: 1 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '6px', flexWrap: 'wrap', gap: '8px' }}>
+              <div style={{ flex: 1, width: '100%' }}>
+                <div style={{
+                  display: 'flex',
+                  flexDirection: isMobile ? 'column' : 'row',
+                  justifyContent: isMobile ? 'center' : 'space-between',
+                  alignItems: isMobile ? 'center' : 'flex-start',
+                  marginBottom: '6px', flexWrap: 'wrap', gap: '8px',
+                }}>
                   <div>
                     <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '30px', fontWeight: 600, color: 'white', margin: 0, marginBottom: '3px' }}>
                       {sel.name}
